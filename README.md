@@ -12,7 +12,7 @@ The application allows users to enter a natural-language description and generat
 
 **AI Image Generator** is an interactive web application that converts natural-language descriptions into AI-generated images.
 
-Users can enter a description of the image they want to create, and the application processes the prompt using a pre-trained **Segmind Tiny-SD** model through the **Diffusers** library.
+Users can enter a description of the image they want to create, and the application processes the prompt using the pre-trained **Segmind Tiny-SD** model through the **Diffusers** library.
 
 The application provides a simple Streamlit interface where users can:
 
@@ -22,7 +22,7 @@ The application provides a simple Streamlit interface where users can:
 * Try different prompts
 * Experiment with text-to-image generation
 
-The application was developed with the assistance of **Generative AI**, which helped generate the application based on a natural-language description of the required functionality and interface.
+The application was developed with the assistance of **Generative AI**, which helped generate the application code based on a natural-language description of the required functionality and interface.
 
 ---
 
@@ -99,7 +99,7 @@ The **Segmind Tiny-SD** model processes the prompt using a Stable Diffusion-base
 
 **4. Image Generation**
 
-The model generates an image based on the semantic information contained in the prompt.
+The model generates an image based on the provided text description.
 
 **5. Output**
 
@@ -161,7 +161,7 @@ The general process can be represented as:
       Generated Image
 ```
 
-The model gradually transforms the internal representation into an image that corresponds to the user's text description.
+The diffusion pipeline processes the text prompt and generates an image corresponding to the description.
 
 ---
 
@@ -221,17 +221,23 @@ The application was tested using different image descriptions.
 
 ## 🎮 How to Use
 
-### Step 1 — Open the Application
+### Step 1 — Install the Required Libraries
 
-Start the Streamlit application.
+Install the dependencies using:
 
 ```bash
-streamlit run app.py
+pip install -r requirements.txt
 ```
 
-> Replace `app.py` with the actual Python filename if your file has a different name.
+### Step 2 — Run the Application
 
-### Step 2 — Enter an Image Description
+Run the following command:
+
+```bash
+streamlit run image_generator.py
+```
+
+### Step 3 — Enter an Image Description
 
 Enter a natural-language description into the text input field.
 
@@ -241,73 +247,36 @@ Enter a natural-language description into the text input field.
 A cute cat sitting in a garden
 ```
 
-### Step 3 — Generate the Image
+### Step 4 — Generate the Image
 
 Click the **Generate Image 🚀** button.
 
-### Step 4 — Wait for Generation
+### Step 5 — Wait for Generation
 
 The application processes the prompt using the AI image-generation model.
 
-### Step 5 — View the Result
+When running on a CPU, image generation may take some time.
+
+### Step 6 — View the Result
 
 The generated image is displayed in the application.
 
 ---
 
-## 💻 Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone <YOUR-GITHUB-REPOSITORY-URL>
-```
-
-### 2. Navigate to the Project Folder
-
-```bash
-cd AI_Image_Generator
-```
-
-### 3. Install Required Libraries
-
-```bash
-pip install streamlit torch diffusers transformers
-```
-
-### 4. Run the Application
-
-```bash
-streamlit run app.py
-```
-
-The Streamlit application will open in your web browser.
-
-> **Note:** AI image generation can require significant computational resources. When running on a CPU, image generation may take longer than when using a compatible GPU.
-
----
-
 ## 📦 Requirements
 
-The main libraries required for the application are:
+The application requires the following Python libraries:
 
 ```text
 streamlit
 torch
 diffusers
 transformers
+accelerate
+safetensors
 ```
 
-You can create a `requirements.txt` file containing:
-
-```text
-streamlit
-torch
-diffusers
-transformers
-```
-
-Then install all dependencies using:
+Install all dependencies using:
 
 ```bash
 pip install -r requirements.txt
@@ -358,7 +327,7 @@ The project combines:
 
 * Natural-language prompting
 * Generative AI-assisted development
-* Python programming
+* Python
 * Streamlit
 * PyTorch
 * Diffusers
@@ -421,7 +390,7 @@ Testing
 Working AI Application
 ```
 
-This demonstrates how Generative AI can accelerate the initial development and prototyping of AI-powered applications.
+This demonstrates how Generative AI can assist in accelerating the initial development and prototyping of AI-powered applications.
 
 ---
 
